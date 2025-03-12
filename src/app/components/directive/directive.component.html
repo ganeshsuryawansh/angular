@@ -10,7 +10,6 @@
     </div>
   </div>
 
-
   <div class="col-3">
     <div class="row">
       <div class="col-6">
@@ -26,9 +25,7 @@
       </div>
     </div>
   </div>
-
 </div>
-
 
 <div class="row">
   <div class="col-3 p-3">
@@ -42,5 +39,43 @@
     <input type="text" placeholder="Num 1" [(ngModel)]="num1">
 
     <input type="text" placeholder="Num 2" [(ngModel)]="num2">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <ul>
+      <li *ngFor="let city of cityList">{{city}}</li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <select name="" id="">
+      <option value="">Select City</option>
+      <option *ngFor="let cityName of cityList">{{cityName}}</option>
+    </select>
+  </div>
+  <div class="col-5">
+    <table>
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of studentList; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{e.name}}</td>
+          <td>{{e.city}}</td>
+          <td>
+            <p *ngIf="e.isActive">Student is Active</p>
+            <p *ngIf="e.isActive == false">Student is De-Active</p>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
