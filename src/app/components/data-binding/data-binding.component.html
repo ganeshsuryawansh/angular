@@ -6,7 +6,7 @@
         from .ts to .html <br> => interpolation and property binding
       </div>
       <div class="col-6 bg-secondary p-3">
-        from .html to .ts
+        from .html to .ts <br> => event binding
       </div>
     </div>
   </div>
@@ -32,5 +32,25 @@
 <div class="row">
   <div class="col-3">
     <button class="btn btn-primary" (click)="showwelcometext()">Show alert</button>
+  </div>
+  <div class="col-3">
+    <button class="btn btn-primary" (click)="showMessage('Hello India!')">show message</button>
+  </div>
+  <div class="col-3">
+    <select (change)="onStateChange()">
+      <option>one</option>
+      <option>two</option>
+      <option>three</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <input type="text" [(ngModel)]="courseName">
+  </div>
+  <div class="col-3">
+    {{isActive}}
+    <input type="checkbox" [(ngModel)]="isActive">
   </div>
 </div>

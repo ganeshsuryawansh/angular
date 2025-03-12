@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-3">
+    <div class="bg-primary p-3" *ngIf="isVisible">
+      div 1
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="bg-danger p-3" *ngIf="num1==num2">
+      div 2
+    </div>
+  </div>
+
+
+  <div class="col-3">
+    <div class="row">
+      <div class="col-6">
+        <select class="form-control" [(ngModel)]="selected">
+          <option>OBC</option>
+          <option>SC-NT</option>
+          <option>OPEN</option>
+          <option>OTHER</option>
+        </select>
+      </div>
+      <div class="col-6" *ngIf="selected=='OTHER'">
+        <input type="text" class="form-control" placeholder="Enter your caste">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col-3 p-3">
+    <button class="btn btn-danger" (click)="hidediv()">Hide</button>
+    <button class="btn btn-primary mx-2" (click)="showdiv()">Show</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <input type="text" placeholder="Num 1" [(ngModel)]="num1">
+
+    <input type="text" placeholder="Num 2" [(ngModel)]="num2">
+  </div>
+</div>
