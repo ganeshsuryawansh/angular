@@ -1,0 +1,22 @@
+<p>api-call works!</p>
+
+<button (click)="getAllusers()">get User</button>
+<button (click)="getComplaintusers()">get User List</button>
+
+
+<div class="row">
+  <div class="col-3 p-3">
+
+    <ul>
+      @for (item of Users; track $index){
+      <li>{{item.name}}</li>
+      }
+    </ul>
+
+    <ul>
+      @for (item of UserList; track $index){
+      <li>{{item.fullName}}</li>
+      }
+    </ul>
+  </div>
+</div>

@@ -62,6 +62,7 @@
           <th>Name</th>
           <th>City</th>
           <th>Status</th>
+          <th>Grade</th>
         </tr>
       </thead>
       <tbody>
@@ -73,9 +74,69 @@
             <p *ngIf="e.isActive">Student is Active</p>
             <p *ngIf="e.isActive == false">Student is De-Active</p>
           </td>
-
+          <td>
+            @if(e.grade=='A'){
+            <span>A Grade</span>
+            }@else if(e.grade=='B'){
+            <span>B Grade</span>
+            }@else if(e.grade=='C'){
+            <span>C Grade</span>
+            }@else if(e.grade=='D'){
+            <span>D Grade</span>
+            }@else{
+            <span>Not Graded</span>
+            }
+          </td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="col-3">
+
+    @if(isDiv1Visible == true){
+    <div>
+      div 1111111111
+    </div>
+    }@else{
+    <div>
+      div 22222222222
+    </div>
+    }
+
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-3">
+    <div class="p-3" [ngClass]="studDivClassName">
+      Student
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <div class="p-3" [ngClass]="studEmpDivClass">
+      Employee
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <input type="text" [(ngModel)]="studEmpDivClass">
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-3" [ngClass]="isOrderActive==true?'bg-success':'bg-danger'">
+    Orders
+  </div>
+  <div class="col-3">
+      <input type="checkbox" [(ngModel)] = "isOrderActive" >
   </div>
 </div>
