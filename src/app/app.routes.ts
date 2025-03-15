@@ -5,6 +5,7 @@ import { DirectiveComponent } from './components/directive/directive.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ApiCallComponent } from './api-call/api-call.component';
 import { UserComponent } from './user/user.component';
+import { UserReactiveComponent } from './user-reactive/user-reactive.component';
 
 export const routes: Routes = [
   { path: 'data-binding', component: DataBindingComponent },
@@ -12,5 +13,7 @@ export const routes: Routes = [
   { path: 'variable', component: VariablesComponent },
   { path: 'templateForm', component: TemplateFormComponent },
   { path: 'api-call', component: ApiCallComponent },
-  { path: 'user', component: UserComponent }
+  { path: 'user', component: UserComponent },
+  { path: 'user-reactive', component: UserReactiveComponent }
+
 ];

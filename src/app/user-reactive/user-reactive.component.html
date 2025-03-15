@@ -18,43 +18,49 @@
             </div>
             <div class="modal-body">
 
-              <form>
+              <form [formGroup]="useForm" (ngSubmit)="onSubmit()">
 
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">User Name</label>
-                  <input type="text" [(ngModel)]="userObj.userName" name="userName" class="form-control"
+                  <input type="text" name="userName" formControlName="userName" class="form-control"
                     id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                  <!-- Validation messages -->
+                  <div *ngIf="useForm.get('userName')?.invalid && useForm.get('userName')?.touched" class="text-danger">
+                    <small *ngIf="useForm.get('userName')?.errors?.['required']">User Name is required.</small>
+                    <small *ngIf="useForm.get('userName')?.errors?.['minlength']">
+                      User Name must be at least 3 characters long.
+                    </small>
+                  </div>
                 </div>
 
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" [(ngModel)]="userObj.emailId" name="emailId" class="form-control"
+                  <input type="email" name="emailId" formControlName="emailId" class="form-control"
                     id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
 
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                  <input type="text" [(ngModel)]="userObj.fullName" name="fullName" class="form-control"
+                  <input type="text" name="fullName" formControlName="fullName" class="form-control"
                     id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
 
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Role</label>
-                  <input type="text" [(ngModel)]="userObj.role" name="role" class="form-control" id="exampleInputEmail1"
+                  <input type="text" name="role" formControlName="role" class="form-control" id="exampleInputEmail1"
                     aria-describedby="emailHelp">
                 </div>
 
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" [(ngModel)]="userObj.password" name="password" class="form-control"
+                  <input type="password" name="password" formControlName="password" class="form-control"
                     id="exampleInputPassword1">
                 </div>
 
-                @if(userObj.userId == 0){
-                <button type="submit" class="btn btn-primary" (click)="onSaveUser()">Submit</button>
-                }@else{
-                <button type="submit" class="btn btn-success" (click)="onUpdate()">Update</button>
-                }
+                <button type="submit" class="btn btn-primary" (click)="onSave()">Submit</button>
+
+                <button type="submit" class="btn btn-success">Update</button>
               </form>
             </div>
 
@@ -89,9 +95,7 @@
             <td>{{i.fullName}}</td>
             <td>{{i.role}}</td>
             <td>
-              <div class="btn btn-primary mx-1" (click)="onEdit(i)">Edit</div>
-
-              <div class="btn btn-danger mx-1" (click)="onDeleteuser(i.userId)">Delete</div>
+              <div class="btn btn-danger mx-1">Delete</div>
             </td>
           </tr>
           }
